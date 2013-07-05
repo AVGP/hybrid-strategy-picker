@@ -1,0 +1,42 @@
+<!doctype html>
+<html ng-app>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+        <script src="app.js"></script>
+        <style>
+            body {
+                width: 100%;
+            }
+            
+            .option {
+                font-size: 2em;
+                position: relative;
+                width: 100%;
+                padding: 1em;
+                background: #eff;
+                border: 1px solid #acc;
+                border-radius: 1em;
+                margin-bottom: 2em;
+                text-align: center;
+            }
+            
+            h2, .centered {
+                text-align: center;
+            }
+            
+            .underlined { text-decoration:underline; }
+        </style>
+    </head>
+    <body ng-controller="ChoiceCtrl">
+        <h1>Hybrid development stack picker</h1>
+        <h2 ng-show="currentChoice.question">
+            {{currentChoice.question}}
+        </h2>
+        <div ng-repeat="option in currentChoice.options" class="option"><a ng-click="select(option.id)">{{option.text}}</a></div>
+        <div ng-show="currentChoice.name" class="centered">
+            <h2><span class="underlined">{{currentChoice.name}}</span> might be for you!</h2>
+            <p>Keep in mind: This is a <strong>too simplistic approach!</strong></p>
+            <p>Check this thing out <a href="{{currentChoice.url}}">here</a> or <a href="index.html">start again</a></p>
+        </div>
+    </body>
+</html>
